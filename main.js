@@ -1,14 +1,3 @@
-// PSEUDO CODE: 
-// function getComputerChoice() {
-//     create random result of rock, paper, or scissors
-//         generate random number between three positions
-//         create conditional that if number is one = rock
-//         create conditional that if number is two = paper
-//         create conditional that else number = scissors
-//         store result of conditional in variable
-//     return variable
-// }
-
 function getComputerChoice() {
     let number = Math.random();
     let result;
@@ -21,17 +10,6 @@ function getComputerChoice() {
     };
     return result;
 };
-
-// PSEUDO CODE: 
-// function playRound(playerSelection, computerSelection) {
-    // store playerSelection in variable that converts to lowercase
-    // call getComputerChoice function and store result in variable
-    // create conditional that compares playerSelection to compSelection
-        // if playerSelection is rock and compSelection is rock return tie
-        // if playerSelection is rock and compSelection is paper return loss
-        // else return win
-        // repeat for all possible permutations
-// }
 
 function playRound(playerSelection, computerSelection) {
     let player1 = playerSelection.toLowerCase();
@@ -64,74 +42,30 @@ function playGame() {
     let computerScore = 0;
     let playerSelection = prompt("Please choose, rock, paper, or scissors.");
     let computerSelection = getComputerChoice();
+    let i = 0;
 
-    let roundOneResult = playRound(playerSelection, computerSelection);
-    if (roundOneResult == 'You have won! Well done.') {
-        playerScore++;
-    } else if (roundOneResult == 'You have lost! Try again.') {
-        computerScore++;
-    } else {
+    for (i = 0; i < 5; i++) {
+        let roundResult = playRound(playerSelection, computerSelection);
+        if (roundResult == 'You have won! Well done.') {
+            playerScore++;
+        } else if (roundResult == 'You have lost! Try again.') {
+            computerScore++;
+        } else {
+    
+        };
 
-    };
-    console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
+        console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
+        playerSelection = prompt("Please choose, rock, paper, or scissors.");
+        computerSelection = getComputerChoice();
+        
+        if (i == 4 && playerScore > computerScore) {
+            console.log("You have won! Would you like to play again?")
+        } else if (i == 4 && playerScore == computerScore) {
+            console.log("You have tied. Please try again. Victory is within your grasp!")
+        } else if (i == 4) {
+            console.log("You have lost this time. Please try again.")
+        } else {
 
-    playerSelection = prompt("Please choose, rock, paper, or scissors.");
-    computerSelection = getComputerChoice();
-
-    let roundTwoResult = playRound(playerSelection, computerSelection);
-    if (roundTwoResult == 'You have won! Well done.') {
-        playerScore++;
-    } else if (roundTwoResult == 'You have lost! Try again.') {
-        computerScore++;
-    } else {
-
-    };
-    console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
-
-    playerSelection = prompt("Please choose, rock, paper, or scissors.");
-    computerSelection = getComputerChoice();
-
-    let roundThreeResult = playRound(playerSelection, computerSelection);
-    if (roundThreeResult == 'You have won! Well done.') {
-        playerScore++;
-    } else if (roundThreeResult == 'You have lost! Try again.') {
-        computerScore++;
-    } else {
-
-    };
-    console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
-
-    playerSelection = prompt("Please choose, rock, paper, or scissors.");
-    computerSelection = getComputerChoice();
-
-    let roundFourResult = playRound(playerSelection, computerSelection);
-    if (roundFourResult == 'You have won! Well done.') {
-        playerScore++;
-    } else if (roundFourResult == 'You have lost! Try again.') {
-        computerScore++;
-    } else {
-
-    };
-    console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
-
-    playerSelection = prompt("Please choose, rock, paper, or scissors.");
-    computerSelection = getComputerChoice();
-
-    let roundFiveResult = playRound(playerSelection, computerSelection);
-    if (roundFiveResult == 'You have won! Well done.') {
-        playerScore++;
-    } else if (roundFiveResult == 'You have lost! Try again.') {
-        computerScore++;
-    } else {
-
-    };
-    console.log("The current score is Player: " + playerScore + " Computer: " + computerScore);
-
-    if (playerScore > computerScore) {
-        console.log("You have won! Would you like to play again?")
-    } else if (playerScore == computerScore) {
-        console.log("You have tied. Please try again. Victory is within your grasp!")
-    } else {
-        console.log("You have lost this time. Please try again.")
-    };
+        };
+    }
 };
