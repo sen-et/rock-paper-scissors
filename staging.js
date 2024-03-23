@@ -1,35 +1,8 @@
-const rockButton = document.querySelector('#rock-btn');
-const paperButton = document.querySelector('#paper-btn');
-const scissorsButton = document.querySelector('#scissors-btn');
+const rockButton = document.querySelector('rock-btn');
+const paperButton = document.querySelector('paper-btn');
+const scissorsButton = document.querySelector('scissors-btn');
 
-rockButton.addEventListener('click', () => {
-    let playerSelection = 'rock';
-    let computerSelection = getComputerChoice();
-    resultsText.textContent = `${playRound(playerSelection, computerSelection)}`;
-    resultsBlock.appendChild(resultsText);
-
-    console.log(playRound(playerSelection, computerSelection));
-});
-paperButton.addEventListener('click', () => {
-    let playerSelection = 'paper';
-    let computerSelection = getComputerChoice();
-    resultsText.textContent = `${playRound(playerSelection, computerSelection)}`;
-    resultsBlock.appendChild(resultsText);
-
-    console.log(playRound(playerSelection, computerSelection));
-});
-scissorsButton.addEventListener('click', () => {
-    let playerSelection = 'scissors';
-    let computerSelection = getComputerChoice();
-    resultsText.textContent = `${playRound(playerSelection, computerSelection)}`;
-    resultsBlock.appendChild(resultsText);
-
-    console.log(playRound(playerSelection, computerSelection));
-});
-
-const resultsBlock = document.querySelector('#results-block');
-const resultsText = document.createElement('p');
-
+rockButton.addEventListener('click', playRound);
 
 function getComputerChoice() {
     let number = Math.random();
